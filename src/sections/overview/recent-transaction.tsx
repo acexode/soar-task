@@ -15,7 +15,27 @@ type Props = {
   transactions: Transactions[];
 };
 
-export function RecentTransaction({ transactions }: Props) {
+export function RecentTransaction() {
+  const transactions = [
+    {
+      title: 'Deposit from my Card',
+      subtitle: '26 January 2021',
+      amount: 850,
+      icon: 'credit-card.png',
+    },
+    {
+      title: 'Deposit from my Card',
+      subtitle: '26 January 2021',
+      amount: 2500,
+      icon: 'paypal.png',
+    },
+    {
+      title: 'Deposit from my Card',
+      subtitle: '26 January 2021',
+      amount: 5400,
+      icon: 'bitcoin.png',
+    },
+  ];
   return (
     <Card sx={{height: '220px'}}>
       <CardContent

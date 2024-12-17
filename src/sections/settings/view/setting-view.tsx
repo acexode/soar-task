@@ -47,10 +47,10 @@ export function SettingView() {
           <UserProfile />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          Item Two
+          Preferences
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          Item Three
+          Security
         </CustomTabPanel>
       </Card>
     </DashboardContent>

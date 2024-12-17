@@ -20,26 +20,7 @@ export function OverviewAnalyticsView() {
   const handleOpen = () => setDialogOpen(true);
   const handleClose = () => setDialogOpen(false);
 
-  const recentTransactions = [
-    {
-      title: 'Deposit from my Card',
-      subtitle: '26 January 2021',
-      amount: 850,
-      icon: 'credit-card.png',
-    },
-    {
-      title: 'Deposit from my Card',
-      subtitle: '26 January 2021',
-      amount: 2500,
-      icon: 'paypal.png',
-    },
-    {
-      title: 'Deposit from my Card',
-      subtitle: '26 January 2021',
-      amount: 5400,
-      icon: 'bitcoin.png',
-    },
-  ];
+
   return (
     <DashboardContent maxWidth="xl">
      
@@ -56,7 +37,7 @@ export function OverviewAnalyticsView() {
             validTill="12/24"
             color="secondary"
             icon={<img alt="icon" src="/assets/icons/white_chip.svg" />}
-           
+
           />
         </Grid>
 
@@ -78,7 +59,7 @@ export function OverviewAnalyticsView() {
         <Typography sx={{ mb: 1, fontSize: '22px', color: '#343C6A', fontWeight: 600 }}>
           Recent Transaction
         </Typography>
-          <RecentTransaction transactions={recentTransactions} />
+          <RecentTransaction />
         </Grid>
       </Grid>
       <Grid container spacing={3} alignItems="stretch" mb={2}>

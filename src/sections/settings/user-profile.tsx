@@ -40,16 +40,16 @@ const UserProfile = () => {
   };
 
   const initialValues = {
-    name: '',
-    userName: '',
-    email: '',
-    password: '',
-    dateOfBirth: '',
-    permanentAddress: '',
-    presentAddress: '',
-    postalCode: '',
-    city: '',
-    country: '',
+    name: 'Abubakar',
+    userName: 'acexode',
+    email: 'abudawud92@gmail.com',
+    password: '123456',
+    dateOfBirth: '18/06/1992',
+    permanentAddress: 'Nigeria',
+    presentAddress: 'Nigeria',
+    postalCode: '901101',
+    city: 'FCT',
+    country: 'Nigeria',
   };
 
   const handleSubmit = (values: any) => {
@@ -77,7 +77,7 @@ const UserProfile = () => {
                     onChange={handleImageUpload}
                   />
                   <Avatar
-                    src={selectedImage || ''}
+                    src={selectedImage || 'assets/images/avatar/profile.png'}
                     sx={{
                       width: 100,
                       height: 100,

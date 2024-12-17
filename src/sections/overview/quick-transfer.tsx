@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Card from '@mui/material/Card';
 import { Tab, Box, Tabs, Paper, Typography } from '@mui/material';
@@ -13,18 +13,6 @@ import { Iconify } from 'src/components/iconify';
 
 export function QuickTransfer() {
   const [value, setValue] = useState(1);
-  useEffect(() => {
-   const fetchData = async() => {
-    try {
-      const response = await axiosInstance.get('api/quick-transfer');
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-   }
-   fetchData()
-  }, [])
-  
   const card = [
     { name: 'Livia Bator', role: 'CEO', img: 'ceo.png' },
     { name: 'Randy Press', role: 'Director', img: 'director.png' },
