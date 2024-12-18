@@ -131,7 +131,7 @@ financial-dashboard/
 ## Live Demo
 The application has been deployed to Vercel. You can access the live version using the link below:
 
-**[Live Demo on Vercel](<VERCEL_DEPLOYMENT_LINK>)**
+**[Live Demo on Vercel](<https://soar-task-delta.vercel.app/>)**
 
 ---
 
