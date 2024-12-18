@@ -77,7 +77,7 @@ export function DashboardLayout({ sx, children, header }: DashboardLayoutProps) 
                     [theme.breakpoints.up(layoutQuery)]: { display: 'none' },
                   }}
                 />
-                <Typography textAlign={isSmallScreen ? 'center' : 'right'} variant='h4'>{sentenceCase(title)}</Typography>
+                <Typography sx={{width: '100%', display: 'flex', justifyContent: {xs: 'center', md: 'flex-start'}}} variant='h4'>{sentenceCase(title)}</Typography>
                 <NavMobile
                   data={navData}
                   open={navOpen}
