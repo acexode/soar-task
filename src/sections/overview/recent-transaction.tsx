@@ -37,7 +37,7 @@ export function RecentTransaction() {
     },
   ];
   return (
-    <Card sx={{height: '220px'}}>
+    <Card sx={{height: {xs: '270px', md: '220px'}}}>
       <CardContent
         sx={{
           p: 3,
