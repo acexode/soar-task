@@ -1,18 +1,10 @@
 import * as Yup from 'yup';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Form, Field, Formik } from 'formik';
 
-import { Box ,
-  Grid,
-  Button,
-  Avatar,
-  useTheme,
-  TextField,
-  IconButton,
-} from '@mui/material';
+import { Box, Grid, Button, Avatar, useTheme, TextField, IconButton } from '@mui/material';
 
 import { Iconify } from 'src/components/iconify';
-
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Your Name is required'),
@@ -28,14 +20,20 @@ const validationSchema = Yup.object().shape({
 });
 
 const UserProfile = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   console.log(theme);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
+    }
+  };
+  const handleIconClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click(); // Programmatically trigger the file input click
     }
   };
 
@@ -67,9 +65,18 @@ const UserProfile = () => {
           <Box sx={{ p: 4, background: '#f9f9f9', borderRadius: 2, boxShadow: 2 }}>
             <Grid container spacing={2}>
               {/* Left Grid: Profile Picture */}
-              <Grid sx={{position: 'relative'}} item mb={2} xs={12} sm={3} container justifyContent="center">
-                <label htmlFor="image-upload">
+              <Grid
+                sx={{ position: 'relative' }}
+                item
+                mb={2}
+                xs={12}
+                sm={3}
+                container
+                justifyContent="center"
+              >
+                <Box sx={{ position: 'relative', display: 'inline-block' }}>
                   <input
+                    ref={fileInputRef}
                     id="image-upload"
                     type="file"
                     accept="image/*"
@@ -84,16 +91,27 @@ const UserProfile = () => {
                       cursor: 'pointer',
                       boxShadow: 2,
                     }}
+                    onClick={handleIconClick} // Trigger file input click on Avatar click
                   />
-                <Box sx={{position: 'relative', }}>
+                  <Box sx={{position: 'relative'}}>
+                    <IconButton
+                      onClick={handleIconClick} // Trigger file input click on IconButton click
+                      sx={{
+                        position: 'absolute',
+                        bottom: '15%',
+                        right: '-10px',
+                        background: '#000',
+                        color: '#fff',
+                        '&:hover': {
+                          background: '#333',
+                        },
+                      }}
+                    >
+                      <Iconify icon="ic:outline-edit" />
+                    </IconButton>
 
-                <IconButton  sx={{position: 'absolute', top: '-25px', right: '5px', background: '#000' 
-                    
-                }} >
-                  <Iconify icon="ic:outline-edit" />
-                </IconButton>
+                  </Box>
                 </Box>
-                </label>
               </Grid>
 
               {/* Right Grid: Form Inputs */}
@@ -208,12 +226,7 @@ const UserProfile = () => {
 
             {/* Save Button */}
             <Box mt={2} textAlign="right">
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                sx={{ px: 4, py: 1 }}
-              >
+              <Button type="submit" variant="contained" color="primary" sx={{ px: 4, py: 1 }}>
                 Save
               </Button>
             </Box>
